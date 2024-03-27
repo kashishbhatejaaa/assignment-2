@@ -1,23 +1,41 @@
 // script.js
-class Smoothie {
+class CraftedSmoothie {
     constructor(ingredients) {
         this.ingredients = ingredients;
     }
 
     getDescription() {
-        return `Your smoothie contains: ${this.ingredients.join(', ')}. Enjoy!`;
+        return `Your craftedsmoothie contains: ${this.ingredients.join(', ')}. Yummmmmmm!`;
     }
 }
 
-document.getElementById('smoothie-form').addEventListener('submit', function(event) {
+document.getElementById('crafted-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Get selected ingredients
+    // select ingredients
     const selectedIngredients = Array.from(document.querySelectorAll('select')).map(select => select.value);
 
-    // Create smoothie object
-    const smoothie = new Smoothie(selectedIngredients);
+   // create smoothie
+    const CraftedSmoothie = new CraftedSmoothie(selectedIngredients);
 
-    // Display smoothie description
-    document.getElementById('smoothie-description').textContent = smoothie.getDescription();
+    // smoothie description
+    document.getElementById('smoothie-description').textContent = CraftedSmoothie.getDescription();
 });
+document.getElementById('order-button').addEventListener('click', function() {
+    // Apply cool animation effect
+    applyCoolAnimation();
+    // Display cool message
+    displayCoolMessage();
+});
+
+function applyCoolAnimation() {
+    const orderButton = document.getElementById('order-button');
+    // Add the 'pulse' class to apply the animation
+    orderButton.classList.add('pulse');
+
+    // Remove the 'pulse' class after the animation ends
+    orderButton.addEventListener('animationend', function() {
+        orderButton.classList.remove('pulse');
+    });
+}
+
